@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-deployment
-spec: 
+  name: springboot-deployment
+  labels:
+    app: spring-serv
+spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: spring-serv 
-  replicas: 1
-  template: 
+      app: spring-serv
+  template:
     metadata:
-      labels: 
+      labels:
         app: spring-serv
-    spec: 
+    spec:
       containers:
-        -name: spring-serv 
-        image: mengsoklay/deops-backend
-        ports: 
-          - containerPort: 8181
+        - name: spring-serv
+          image: mengsoklay/deops-backend
+          ports:
+            - containerPort: 8181
