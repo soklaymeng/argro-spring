@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: springboot-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - protocol: TCP
       port: 8282
