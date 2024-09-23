@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: springboot-argocd-application
+  namespace: argocd
+spec:
+  project: default
+  
+  source:
+    repoURL: https://github.com/soklaymeng/argro-spring.git
+    targetRevision: main
+    path: mainifest
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: springboot-agrocd
+  
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+  revisionHistoryLimit: 5
