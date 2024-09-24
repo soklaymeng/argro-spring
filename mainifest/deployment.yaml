@@ -16,25 +16,6 @@ spec:
     spec:
       containers:
         - name: spring-serv
-          image: mengsoklay/deops-backend:${TAG}.${VERSION}  # Placeholder for dynamic tagging
+          image: mengsoklay/deops-backend
           ports:
             - containerPort: 8181
-          livenessProbe:
-            httpGet:
-              path: /actuator/health
-              port: 8181
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /actuator/health
-              port: 8181
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          resources:
-            requests:
-              memory: "256Mi"
-              cpu: "500m"
-            limits:
-              memory: "512Mi"
-              cpu: "1000m"
