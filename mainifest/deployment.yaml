@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: spring-serv
-          image: mengsoklay/deops-backend:82
+          image: mengsoklay/deops-backend:83
           ports:
             - containerPort: 8181
